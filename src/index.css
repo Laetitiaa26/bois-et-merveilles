@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Quicksand", "Segoe UI", sans-serif;
+
+  --color-cream: #fbf4e8;
+  --color-cream-dark: #f3e6d2;
+  --color-ink: #4a3c30;
+  --color-ink-light: #7a6a5a;
+
+  --color-sage: #93a982;
+  --color-sage-light: #e6ecdc;
+  --color-terracotta: #d98c6b;
+  --color-terracotta-light: #f6e0d3;
+  --color-mustard: #e2b04a;
+  --color-mustard-light: #f8edcd;
+  --color-dustypink: #e0a49c;
+  --color-dustypink-light: #f8e5e1;
+  --color-sky: #8db3bf;
+  --color-sky-light: #e2eef1;
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  /* Empêche le tiroir du panier (position fixed + translate-x-full) de créer
+     un scroll horizontal fantôme quand il est fermé. */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+}
