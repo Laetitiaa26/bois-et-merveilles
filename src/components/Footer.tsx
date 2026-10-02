@@ -52,7 +52,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-ink/10 px-6 py-4 text-center text-xs text-ink-light">
-        © {new Date().getFullYear()} Bois &amp; Merveilles — Projet de portfolio, site de démonstration.
+        © {new Date().getFullYear()} Bois &amp; Merveilles - Projet de portfolio, site de démonstration.
       </div>
     </footer>
   );
