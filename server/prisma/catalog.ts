@@ -70,7 +70,7 @@ export const categories: CatalogCategory[] = [
       {
         name: "Cubes en bois colorés (24 pièces)",
         description:
-          "Vingt-quatre cubes en bois massif teintés dans des couleurs chaudes et profondes — terracotta, vert sapin, moutarde, bleu nuit — pour empiler, construire des murs ou abriter les animaux.",
+          "Vingt-quatre cubes en bois massif teintés dans des couleurs chaudes et profondes (terracotta, vert sapin, moutarde, bleu nuit) pour empiler, construire des murs ou abriter les animaux.",
         priceCents: 3490,
         imageUrl: "/blocdeboiscarre2.webp",
         material: "Bois de hêtre, teinture à l'eau",

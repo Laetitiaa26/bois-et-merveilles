@@ -1,6 +1,8 @@
-# Bois & Merveilles — boutique de jouets en bois
+# Bois & Merveilles : boutique de jouets en bois
 
 Site e-commerce (portfolio) pour une boutique de jouets en bois / Montessori.
+
+**Démo en ligne : https://bois-et-merveilles.vercel.app** (paiement en mode test Stripe ; l'API hébergée gratuitement peut mettre 30 à 50 secondes à se réveiller au premier chargement).
 
 - **Frontend** : React 19 + Vite + TypeScript + Tailwind CSS v4 (racine du repo)
 - **Backend** : Node.js + Express + Prisma + PostgreSQL (`server/`)
@@ -10,7 +12,7 @@ Site e-commerce (portfolio) pour une boutique de jouets en bois / Montessori.
 
 Le backend a besoin d'une URL `DATABASE_URL`. Deux options :
 
-### Option A — Docker (local)
+### Option A : Docker (local)
 
 Si tu as [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé :
 
@@ -20,7 +22,7 @@ docker compose up -d
 
 Cela lance un Postgres local sur `localhost:5432` (utilisateur/mot de passe/db : `jouetbois`). C'est l'URL déjà présente dans `server/.env.example`, donc rien à changer.
 
-### Option B — Base hébergée gratuite (sans Docker)
+### Option B : base hébergée gratuite (sans Docker)
 
 Crée une base Postgres gratuite chez [Neon](https://neon.tech), [Supabase](https://supabase.com) (utiliser uniquement la base Postgres) ou [Railway](https://railway.app), puis copie l'URL de connexion fournie dans `DATABASE_URL`.
 
@@ -94,6 +96,6 @@ docker-compose.yml   Postgres pour le développement local
 
 ## Notes
 
-- Les visuels produits sont des illustrations SVG générées en interne (aucune dépendance à des photos externes) — à remplacer par de vraies photos si besoin, voir `src/components/ProductIllustration.tsx`.
+- Les visuels produits sont des photos au format WebP (dans `public/`, ou dans `server/uploads/` pour celles ajoutées depuis l'admin). Une illustration SVG (`src/components/ProductIllustration.tsx`) s'affiche à la place des photos pour un produit qui n'en a pas encore.
 - Le panier est stocké côté client (`localStorage`) ; les prix sont toujours recalculés côté serveur au moment du paiement.
 - L'authentification utilise un cookie `httpOnly` signé (JWT) ; la commande est possible avec ou sans compte.
