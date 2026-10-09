@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 import { api } from "../lib/api";
 import { Button } from "./ui/Button";
 
@@ -48,6 +49,12 @@ export function NewsletterForm() {
         </Button>
       </div>
       {error && <p className="text-sm text-terracotta">{error}</p>}
+      <p className="text-xs text-ink-light">
+        Désinscription à tout moment.{" "}
+        <Link to="/confidentialite" className="underline hover:text-ink">
+          Données personnelles
+        </Link>
+      </p>
     </form>
   );
 }

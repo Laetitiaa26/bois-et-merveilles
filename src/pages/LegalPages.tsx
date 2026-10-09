@@ -1,4 +1,23 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+
+const CONTACT = "contact@laetitiapenel.fr";
+
+function Mail() {
+  return (
+    <a href={`mailto:${CONTACT}`} className="text-sage hover:underline">
+      {CONTACT}
+    </a>
+  );
+}
+
+function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-sage hover:underline">
+      {children}
+    </a>
+  );
+}
 
 function LegalLayout({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -19,38 +38,148 @@ export function LegalNoticePage() {
   return (
     <LegalLayout title="Mentions légales">
       <section>
-        <h2>Éditeur du site</h2>
+        <h2>Éditrice du site</h2>
         <p>
-          Bois &amp; Merveilles, boutique fictive créée à des fins de démonstration.
+          Laetitia PENEL, développeuse web, entrepreneuse individuelle
           <br />
-          Contact : contact@boisetmerveilles.fr
+          SIRET : 106 228 166 00018
+          <br />
+          7 allée des Lilas, 62149 Givenchy-lès-la-Bassée, France
+          <br />
+          Email : <Mail />
+          <br />
+          Site : <ExternalLink href="https://laetitiapenel.fr">laetitiapenel.fr</ExternalLink>
+        </p>
+        <p className="mt-2">Directrice de la publication : Laetitia PENEL</p>
+        <p className="mt-2">
+          « Bois &amp; Merveilles » est une boutique fictive, créée pour présenter le savoir-faire de l'éditrice.
         </p>
       </section>
       <section>
         <h2>Hébergement</h2>
-        <p>Les informations sur l'hébergeur seront précisées lors de la mise en ligne du site.</p>
+        <ul className="list-disc space-y-1 pl-5">
+          <li>
+            Site : Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis (
+            <ExternalLink href="https://vercel.com">vercel.com</ExternalLink>)
+          </li>
+          <li>
+            Serveur (API) : Render Services, Inc., San Francisco, CA, États-Unis (
+            <ExternalLink href="https://render.com">render.com</ExternalLink>)
+          </li>
+          <li>
+            Base de données : Neon (<ExternalLink href="https://neon.tech">neon.tech</ExternalLink>)
+          </li>
+        </ul>
       </section>
       <section>
         <h2>Propriété intellectuelle</h2>
         <p>
-          Les textes et la mise en page du site sont la propriété de leur auteur. Les photographies proviennent de
-          banques d'images libres de droits.
+          Le code, les textes et la mise en page du site sont la propriété de Laetitia PENEL. Les photographies
+          proviennent de banques d'images libres de droits et restent la propriété de leurs auteurs.
         </p>
       </section>
       <section>
-        <h2>Données personnelles</h2>
+        <h2>Données personnelles et cookies</h2>
         <p>
-          Les données saisies (compte client, adresse de livraison, avis, inscription à la newsletter) servent
-          uniquement au fonctionnement du site. Vous pouvez demander leur suppression à tout moment en écrivant à
-          l'adresse de contact ci-dessus.
+          Les données saisies sur le site et vos droits sont détaillés dans la{" "}
+          <Link to="/confidentialite" className="text-sage hover:underline">
+            politique de confidentialité
+          </Link>
+          .
         </p>
+      </section>
+    </LegalLayout>
+  );
+}
+
+export function PrivacyPage() {
+  return (
+    <LegalLayout title="Politique de confidentialité">
+      <section>
+        <p>
+          Cette politique explique quelles données personnelles sont collectées sur Bois &amp; Merveilles, pourquoi,
+          et comment exercer vos droits, conformément au Règlement général sur la protection des données (RGPD) et à
+          la loi Informatique et Libertés.
+        </p>
+      </section>
+      <section>
+        <h2>Responsable du traitement</h2>
+        <p>
+          Laetitia PENEL, entrepreneuse individuelle, 7 allée des Lilas, 62149 Givenchy-lès-la-Bassée, France.
+          Contact : <Mail />.
+        </p>
+      </section>
+      <section>
+        <h2>Données collectées et utilisation</h2>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>
+            <strong className="text-ink">Compte client</strong> : nom, adresse email et mot de passe (enregistré sous
+            forme chiffrée, illisible même pour l'administratrice). Il sert à vous connecter et à retrouver vos
+            commandes et vos favoris.
+          </li>
+          <li>
+            <strong className="text-ink">Commandes</strong> : email, nom, adresse de livraison et contenu de la
+            commande, pour traiter et suivre la commande.
+          </li>
+          <li>
+            <strong className="text-ink">Avis</strong> : note et commentaire, publiés avec votre nom après validation
+            par l'administratrice.
+          </li>
+          <li>
+            <strong className="text-ink">Newsletter</strong> : adresse email, uniquement si vous vous inscrivez.
+          </li>
+        </ul>
+        <p className="mt-3">
+          Ces traitements reposent sur l'exécution du service que vous demandez (compte, commande) et, pour la
+          newsletter, sur votre consentement. Vos données ne sont jamais vendues ni utilisées à des fins publicitaires.
+        </p>
+      </section>
+      <section>
+        <h2>Paiement</h2>
+        <p>
+          Le paiement est géré par Stripe, en <strong className="text-ink">mode test</strong> : aucun paiement réel
+          n'est débité. N'utilisez pas votre vraie carte bancaire, mais la carte de test 4242 4242 4242 4242. Les
+          données de paiement sont saisies directement chez Stripe et ne transitent jamais par Bois &amp; Merveilles.
+        </p>
+      </section>
+      <section>
+        <h2>Destinataires et sous-traitants</h2>
+        <p>
+          Vos données sont accessibles uniquement à l'administratrice du site. Elles sont hébergées par des
+          prestataires techniques : Vercel (site), Render (serveur), Neon (base de données) et Stripe (paiement).
+          Certains sont situés aux États-Unis : ces transferts sont encadrés par les clauses contractuelles types de
+          la Commission européenne.
+        </p>
+      </section>
+      <section>
+        <h2>Durée de conservation</h2>
+        <ul className="list-disc space-y-1 pl-5">
+          <li>
+            Compte, commandes, favoris et avis : jusqu'à la suppression de votre compte, et au plus 3 ans après votre
+            dernière connexion.
+          </li>
+          <li>Newsletter : jusqu'à votre désinscription, et au plus 3 ans après votre inscription.</li>
+        </ul>
       </section>
       <section>
         <h2>Cookies</h2>
         <p>
-          Le site utilise uniquement un cookie technique pour garder votre session ouverte, et le stockage local de
-          votre navigateur pour mémoriser votre panier. Aucun cookie publicitaire ou de mesure d'audience n'est
-          déposé.
+          Le site dépose uniquement un cookie technique, nécessaire pour garder votre session ouverte, et mémorise
+          votre panier dans votre navigateur. Aucun cookie publicitaire ou de mesure d'audience n'est utilisé : aucun
+          consentement n'est donc demandé. Les polices d'écriture sont hébergées directement sur le site, sans appel à
+          Google.
+        </p>
+      </section>
+      <section>
+        <h2>Vos droits</h2>
+        <p>
+          Vous pouvez à tout moment accéder à vos données, les rectifier, les faire supprimer (y compris votre compte
+          ou votre inscription à la newsletter), vous opposer à leur traitement, en demander la limitation ou la
+          portabilité. Il suffit d'écrire à <Mail /> ; une réponse vous sera apportée sous un mois.
+        </p>
+        <p className="mt-2">
+          Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir la CNIL (
+          <ExternalLink href="https://www.cnil.fr">www.cnil.fr</ExternalLink>).
         </p>
       </section>
     </LegalLayout>
@@ -134,7 +263,7 @@ export function ShippingPage() {
         <h2>Retours</h2>
         <p>
           Un jouet ne convient pas ? Vous avez 14 jours après réception pour nous le retourner. Écrivez-nous à
-          contact@boisetmerveilles.fr avec votre numéro de commande : nous vous envoyons une étiquette de retour, et
+          <Mail /> avec votre numéro de commande : nous vous envoyons une étiquette de retour, et
           le remboursement est effectué sous 7 jours après réception du colis.
         </p>
       </section>

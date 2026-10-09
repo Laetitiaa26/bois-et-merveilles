@@ -44,6 +44,12 @@ export function RegisterPage() {
         <Button type="submit" disabled={isSubmitting} className="mt-2">
           {isSubmitting ? "Création..." : "Créer mon compte"}
         </Button>
+        <p className="text-xs text-ink-light">
+          Vos données servent uniquement à gérer votre compte et vos commandes.{" "}
+          <Link to="/confidentialite" className="underline hover:text-ink">
+            Politique de confidentialité
+          </Link>
+        </p>
       </form>
       <p className="mt-6 text-center text-sm text-ink-light">
         Déjà un compte ?{" "}

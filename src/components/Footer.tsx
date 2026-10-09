@@ -17,6 +17,7 @@ const LINK_COLUMNS = [
       { to: "/livraison-retours", label: "Livraison & retours" },
       { to: "/cgv", label: "Conditions générales de vente" },
       { to: "/mentions-legales", label: "Mentions légales" },
+      { to: "/confidentialite", label: "Confidentialité" },
     ],
   },
 ];
@@ -33,7 +34,7 @@ export function Footer() {
             Des jouets simples et intemporels en bois, pensés pour nourrir la créativité, la confiance et
             l'imagination des tout-petits.
           </p>
-          <p className="mt-3 text-sm text-ink-light">contact@boisetmerveilles.fr</p>
+          <p className="mt-3 text-sm text-ink-light">contact@laetitiapenel.fr</p>
         </div>
         {LINK_COLUMNS.map((column) => (
           <div key={column.title} className="flex flex-col gap-2 text-sm">
