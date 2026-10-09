@@ -138,7 +138,7 @@ export function PrivacyPage() {
         <h2>Paiement</h2>
         <p>
           Le paiement est géré par Stripe, en <strong className="text-ink">mode test</strong> : aucun paiement réel
-          n'est débité. N'utilisez pas votre vraie carte bancaire, mais la carte de test 4242 4242 4242 4242. Les
+          n'est débité. N'utilisez pas votre vraie carte bancaire, mais la carte de test indiquée sur la page de commande. Les
           données de paiement sont saisies directement chez Stripe et ne transitent jamais par Bois &amp; Merveilles.
         </p>
       </section>
